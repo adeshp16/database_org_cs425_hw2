@@ -8,7 +8,7 @@ import edu.cs425.hw2.csvreader.InputCsvParser;
 import edu.cs425.hw2.model.Department;
 import edu.cs425.hw2.model.Employee;
 
-public class QueryDiverClass {
+public class QueryDriverClass {
 
 	public static void main(String[] args) {
 

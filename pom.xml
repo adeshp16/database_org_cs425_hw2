@@ -27,7 +27,7 @@
 				<version>1.6.0</version>
 
 				<configuration>
-					<mainClass>edu.cs425.hw2.main.QueryDiverClass</mainClass>
+					<mainClass>edu.cs425.hw2.main.QueryDriverClass</mainClass>
 				</configuration>
 
 			</plugin>
