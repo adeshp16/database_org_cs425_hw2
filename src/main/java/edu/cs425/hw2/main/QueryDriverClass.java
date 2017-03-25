@@ -9,6 +9,9 @@ import edu.cs425.hw2.model.Department;
 import edu.cs425.hw2.model.Employee;
 
 public class QueryDriverClass {
+	
+	private static List<Employee> employeeList=null;
+	public static List<Department> deptList=null;
 
 	public static void main(String[] args) {
 
@@ -38,15 +41,16 @@ public class QueryDriverClass {
 			case 1:
 				System.out.println("Display both tables option selected");
 					InputCsvParser csvParser= new InputCsvParser();
-					List<Employee> employeeList=csvParser.getEmployeeCsvList();
+					employeeList=csvParser.getEmployeeCsvList();
 					csvParser.displayEmployeeTable(employeeList);
 					
-					List<Department> deptList=csvParser.getDepartmentCsvList();
+					deptList=csvParser.getDepartmentCsvList();
 					csvParser.displayDepartmentTable(deptList);
 					
 				break;
 			case 2:
 				System.out.println("Join operation selected");
+				
 				break;
 			case 3:
 				System.out.println("Group by operation selected");
