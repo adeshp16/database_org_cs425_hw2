@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>edu.cs435</groupId>
-	<artifactId>edu.cs435.assignment2</artifactId>
+	<artifactId>database_org_cs425_hw2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -27,7 +27,7 @@
 				<version>1.6.0</version>
 
 				<configuration>
-					<mainClass>edu.cs425.hw2.driver.DriverClass</mainClass>
+					<mainClass>edu.cs425.hw2.main.QueryDiverClass</mainClass>
 				</configuration>
 
 			</plugin>
