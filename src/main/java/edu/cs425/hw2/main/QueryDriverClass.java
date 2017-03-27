@@ -7,6 +7,7 @@ import java.util.Scanner;
 import edu.cs425.hw2.csvreader.InputCsvParser;
 import edu.cs425.hw2.model.Department;
 import edu.cs425.hw2.model.Employee;
+import edu.cs425.hw2.sqloperations.JoinOperation;
 
 public class QueryDriverClass {
 	
@@ -15,6 +16,10 @@ public class QueryDriverClass {
 
 	public static void main(String[] args) {
 
+		
+		InputCsvParser csvParser= new InputCsvParser();
+		employeeList=csvParser.getEmployeeCsvList();
+		deptList=csvParser.getDepartmentCsvList();
 		
 		while(true)
 		{
@@ -40,16 +45,15 @@ public class QueryDriverClass {
 			{
 			case 1:
 				System.out.println("Display both tables option selected");
-					InputCsvParser csvParser= new InputCsvParser();
-					employeeList=csvParser.getEmployeeCsvList();
 					csvParser.displayEmployeeTable(employeeList);
 					
-					deptList=csvParser.getDepartmentCsvList();
 					csvParser.displayDepartmentTable(deptList);
 					
 				break;
 			case 2:
 				System.out.println("Join operation selected");
+				JoinOperation joinOperation=JoinOperation.getSingletonInstance();
+				joinOperation.joinTwoTable(employeeList,deptList);
 				
 				break;
 			case 3:
