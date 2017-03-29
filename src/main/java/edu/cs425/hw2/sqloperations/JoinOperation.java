@@ -1,6 +1,8 @@
 package edu.cs425.hw2.sqloperations;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import edu.cs425.hw2.model.Department;
 import edu.cs425.hw2.model.Employee;
@@ -38,6 +40,30 @@ public class JoinOperation {
 	public static JoinOperation getSingletonInstance() {
 		return singletonInstance;
 
+	}
+
+	public void groupByDeptTable(List<Employee> employeeList) {
+		System.out.println(
+				"*******************************************************************************************************************************************************************");
+		System.out.println(
+				"The result of group by query(Select dept_id,count(*) as Cnt from employee group by dept_id)");
+		System.out.println(
+				"Dept_id" + "|" + "Cnt" + "|");
+		
+		Map<Integer, Integer> count = new HashMap<Integer, Integer>();
+		for (Employee employee : employeeList) {
+			Integer key= employee.getDept_id();
+			if (count.containsKey(key)) {
+		        int getcnt =Integer.valueOf(count.get(key));
+		        getcnt++;
+		        count.put(key, getcnt);
+		    }else{
+		        count.put(key, 1);
+		    }
+		}
+		for (Map.Entry<Integer, Integer> entry : count.entrySet()) {
+		    System.out.println(entry.getKey() + " | " + entry.getValue() + " | ");
+		}
 	}
 
 }

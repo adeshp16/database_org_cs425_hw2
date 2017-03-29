@@ -58,6 +58,10 @@ public class QueryDriverClass {
 				break;
 			case 3:
 				System.out.println("Group by operation selected");
+				
+				JoinOperation groupbyOperation=JoinOperation.getSingletonInstance();
+				groupbyOperation.groupByDeptTable(employeeList);
+				
 				break;
 			case 4:
 				System.out.println("IN operation selected");
