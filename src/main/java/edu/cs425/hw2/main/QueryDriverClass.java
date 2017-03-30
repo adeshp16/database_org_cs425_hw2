@@ -29,7 +29,9 @@ public class QueryDriverClass {
 		System.out.println("2. Join operation");
 		System.out.println("3. Group By operation");
 		System.out.println("4. IN operation");
-		System.out.println("5. Exit");
+		System.out.println("5. Left Outer Join operation");
+		System.out.println("6. Anti Join operation");
+		System.out.println("7. Exit");
 		System.out.println("*************************************************************************");
 		
 		System.out.println("Please enter your choice..");
@@ -67,6 +69,12 @@ public class QueryDriverClass {
 				System.out.println("IN operation selected");
 				break;
 			case 5:
+				System.out.println("Left outer Join selected");
+				JoinOperation leftOuterOperation=JoinOperation.getSingletonInstance();
+				leftOuterOperation.leftOuterJoin(employeeList,deptList);
+				//joinOperation.joinTwoTable(employeeList,deptList);
+				break;
+			case 7:
 				System.out.println("Thank you! Exiting the application, good bye.");
 				System.exit(1);
 			}

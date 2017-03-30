@@ -66,4 +66,46 @@ public class JoinOperation {
 		}
 	}
 
+	public void leftOuterJoin(List<Employee> employeeList, List<Department> deptList) {
+		
+		Map<Integer, Employee> employeeMap=new HashMap<Integer, Employee>();
+		
+		System.out.println(
+				"*******************************************************************************************************************************************************************");
+		System.out.println(
+				"The result of left outer join query(Select e.emp_id,e.emp_name,d.dept_name from employee e left join department d on e.dept_id=d.dept_id)");
+		System.out.println(
+				"*******************************************************************************************************************************************************************");
+		System.out.println(
+				"Employee_id" + "|" + "Employee_name" + "|" + "Dept_name" +"|");
+		for (Employee employee : employeeList) {
+			for (Department department : deptList) {
+				if (employee.getDept_id() == department.getDept_Id()) {
+					System.out.println(
+							employee.getEmp_id() + " | " + employee.getEmp_name() +" | "+ department.getDept_name()  + "|");
+					employeeMap.put(employee.getEmp_id(), employee);
+				
+				}
+				
+
+			}
+		}
+		
+		for(Employee employee : employeeList)
+		{
+			int employeeId=employee.getEmp_id();
+			if(!employeeMap.containsKey(employeeId)){
+				//System.out.println("Uncommon employee id="+employeeId);
+				System.out.println(
+						employee.getEmp_id() + " | " + employee.getEmp_name() +" | "+ "null"  + "|");
+			}
+			
+		}
+		
+
+		System.out.println(
+				"*******************************************************************************************************************************************************************");
+
+	}
+
 }

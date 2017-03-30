@@ -40,7 +40,15 @@ public class InputCsvParser {
 			final Reader empReader = new FileReader(EMPLOYEE_CSV_FILEPATH);
 			employeeList=csvToBean.parse(employeeStategyObj,empReader);
 			
-		} catch (Exception e) {
+		}catch(RuntimeException r){
+			//System.out.println("in runtime exception"+r.getMessage());
+			System.out.println("Sorry there is some issue,Some value in the Employee csv is not correct, one of the below 2 points is the problem");
+			System.out.println("1.either some department_id is not integer(If no dept_id assigned then put 0 as value in input file)");
+			System.out.println("2.Employee_id is not integer value, every employee should have mandatory integer value assigned to it");
+			System.out.println("Please try correcting employee_input.csv and try again, exiting the application");
+			System.exit(1);
+		}
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 		
@@ -74,7 +82,14 @@ public class InputCsvParser {
 			final Reader deptReader = new FileReader(DEPARTMENT_CSV_FILEPATH);
 			departmentList=csvToBean.parse(departmentStategyObj,deptReader);
 			
-		} catch (Exception e) {
+		} catch(RuntimeException r)
+		{
+			System.out.println("Sorry there is some issue,Some value in the Department_input csv is not correct,");
+			System.out.println("Some department_id is not integer(every department row should have dept_id assigned)");
+			System.out.println("Please try correcting department_input.csv and try again, exiting the application");
+			System.exit(1);
+		}
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 		
