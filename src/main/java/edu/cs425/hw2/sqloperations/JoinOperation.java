@@ -117,7 +117,7 @@ public class JoinOperation {
 				"*******************************************************************************************************************************************************************");
 		System.out.println(
 				"Employee_id" + "|" + "Employee_name" + "|" + "Dept_id" + "|" + "|" + "Address" + "|");
-		int Dept_Id = 0;
+		int Dept_Id = -1;
 		for (Department department : deptList) {
 			//System.out.println(department);
 			if(department.getDept_name().equals("cs")) {
