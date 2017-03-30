@@ -39,7 +39,7 @@ public class QueryDriverClass {
 		Scanner scanner = new Scanner(System.in);
 		try {
 			int userChoice= scanner.nextInt();
-			if(userChoice<1 || userChoice>5)
+			if(userChoice<1 || userChoice>7)
 			{
 				throw new Exception();
 			}
@@ -77,15 +77,20 @@ public class QueryDriverClass {
 				leftOuterOperation.leftOuterJoin(employeeList,deptList);
 				//joinOperation.joinTwoTable(employeeList,deptList);
 				break;
+			case 6:
+				System.out.println("Left outer Join selected");
+				JoinOperation antiJoinOperation=JoinOperation.getSingletonInstance();
+				antiJoinOperation.antiJoinOperation(employeeList,deptList);
+				break;
 			case 7:
 				System.out.println("Thank you! Exiting the application, good bye.");
 				System.exit(1);
 			}
 			
 		} catch (InputMismatchException  e) {
-			System.out.println(" The option selected is wrong, Please enter any of the option from (1,2,3,4 or 5)");
+			System.out.println(" The option selected is wrong, Please enter any of the option from (1,2,3,4,5,6 or 7)");
 		} catch (Exception e) {
-			System.out.println("The option selected is wrong, You can only enter values between (1,2,3,4 or 5)");
+			System.out.println("The option selected is wrong, You can only enter values between (1,2,3,4,5,6 or 7)");
 		}
 			
 		}
