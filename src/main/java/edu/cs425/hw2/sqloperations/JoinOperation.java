@@ -133,5 +133,31 @@ public class JoinOperation {
 			}
 		}		
 	}
+	
+	public void antiJoinOperation(List<Employee> employeeList, List<Department> deptList) {
+		System.out.println(
+				"*******************************************************************************************************************************************************************");
+		System.out.println(
+				"The result of IN query :  Select e.emp_id, e.emp_name, e.dept_id, e.address from employee  e where e.dept_id NOT IN (Select d.dept_id from Department d where d.dept_name = cs) ");
+		System.out.println(
+				"*******************************************************************************************************************************************************************");
+		System.out.println(
+				"Employee_id" + "|" + "Employee_name" + "|" + "Dept_id" + "|" + "|" + "Address" + "|");
+		int Dept_Id = -1;
+		for (Department department : deptList) {
+			//System.out.println(department);
+			if(department.getDept_name().equals("cs")) {
+				Dept_Id = department.getDept_Id();
+				//System.out.println(Dept_Id);
+			}
+		}
+		for (Employee employee : employeeList) {
+			if(employee.getDept_id() != Dept_Id) {
+				System.out.println(
+						employee.getEmp_id() + " | " + employee.getEmp_name() + " | " + employee.getDept_id()
+								+ " | " + employee.getEmp_addr() + "|");
+			}
+		}		
+	}
 
 }
