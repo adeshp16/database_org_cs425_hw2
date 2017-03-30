@@ -67,6 +67,9 @@ public class QueryDriverClass {
 				break;
 			case 4:
 				System.out.println("IN operation selected");
+				JoinOperation InOperation=JoinOperation.getSingletonInstance();
+				InOperation.inOperationDeptEmp(employeeList,deptList);
+				
 				break;
 			case 5:
 				System.out.println("Left outer Join selected");
