@@ -48,36 +48,47 @@ public class QueryDriverClass {
 			case 1:
 				System.out.println("Display both tables option selected");
 					csvParser.displayEmployeeTable(employeeList);
-					
 					csvParser.displayDepartmentTable(deptList);
 					
 				break;
 			case 2:
-				System.out.println("Join operation selected");
+				
+				displayBothTableContents(csvParser);
+				
 				JoinOperation joinOperation=JoinOperation.getSingletonInstance();
+				System.out.println("Join operation selected");
 				joinOperation.joinTwoTable(employeeList,deptList);
 				
 				break;
 			case 3:
-				System.out.println("Group by operation selected");
 				
+				displayBothTableContents(csvParser);
+				
+				System.out.println("Group by operation selected");
 				JoinOperation groupbyOperation=JoinOperation.getSingletonInstance();
 				groupbyOperation.groupByDeptTable(employeeList);
 				
 				break;
 			case 4:
+				
+				displayBothTableContents(csvParser);
+				
 				System.out.println("IN operation selected");
 				JoinOperation InOperation=JoinOperation.getSingletonInstance();
 				InOperation.inOperationDeptEmp(employeeList,deptList);
 				
 				break;
 			case 5:
+				displayBothTableContents(csvParser);
+				
 				System.out.println("Left outer Join selected");
 				JoinOperation leftOuterOperation=JoinOperation.getSingletonInstance();
 				leftOuterOperation.leftOuterJoin(employeeList,deptList);
 				//joinOperation.joinTwoTable(employeeList,deptList);
 				break;
 			case 6:
+				displayBothTableContents(csvParser);
+				
 				System.out.println("Left outer Join selected");
 				JoinOperation antiJoinOperation=JoinOperation.getSingletonInstance();
 				antiJoinOperation.antiJoinOperation(employeeList,deptList);
@@ -94,6 +105,20 @@ public class QueryDriverClass {
 		}
 			
 		}
+	}
+	
+	public static void displayBothTableContents(InputCsvParser csvParser){
+		System.out.println(
+				"*******************************************************************************************************************************************************************");
+		System.out.println("Displaying the Table Content");
+		System.out.println(
+				"*******************************************************************************************************************************************************************");
+		
+		csvParser.displayEmployeeTable(employeeList);
+		csvParser.displayDepartmentTable(deptList);
+		System.out.println(
+				"*******************************************************************************************************************************************************************");
+		
 	}
 
 }
